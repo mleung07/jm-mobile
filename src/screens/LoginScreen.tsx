@@ -10,12 +10,15 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
+import { useAppDispatch } from "../store/hooks";
+import { login } from "../store/slices/authSlice";
 
 type LoginScreenProps = NativeStackScreenProps<any, "Login">;
 
 const LoginScreen = ({ navigation }: LoginScreenProps) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const dispatch = useAppDispatch();
 
   const handleLogin = () => {
     if (!email || !password) {
@@ -25,6 +28,7 @@ const LoginScreen = ({ navigation }: LoginScreenProps) => {
 
     // Simple validation for demo purposes
     if (email.includes("@") && password.length >= 6) {
+      dispatch(login({ email }));
       navigation.replace("Home");
     } else {
       Alert.alert(

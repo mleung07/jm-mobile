@@ -17,3 +17,9 @@ export interface Product {
     count: number;
   };
 }
+
+export type RootStackParamList = {
+  Login: undefined;
+  Home: undefined;
+  Details: { id: string };
+};

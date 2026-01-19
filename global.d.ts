@@ -1,5 +1,5 @@
 import { StaticParamList } from "@react-navigation/native";
-import { RootStack } from "./src/screens";
+import { RootStack } from "./App";
 
 type RootStackParamList = StaticParamList<typeof RootStack>;
 

@@ -1,3 +1,4 @@
+import { NavigationProp, useNavigation } from "@react-navigation/native";
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import {
@@ -7,13 +8,19 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import { Product } from "../../types";
+import { Product, RootStackParamList } from "../../types";
 import { fetchProducts } from "../api/product";
 import ProductFlatList from "../components/ProductFlatList";
 import { useAppSelector } from "../store/hooks";
 
+type DetailsScreenNavigationProp = NavigationProp<
+  RootStackParamList,
+  "Details"
+>;
+
 const HomeScreen = () => {
   const { user } = useAppSelector((state) => state.auth);
+  const navigation = useNavigation<DetailsScreenNavigationProp>();
 
   const { isPending, error, data, refetch } = useQuery({
     queryKey: ["products"],
@@ -21,7 +28,9 @@ const HomeScreen = () => {
   });
 
   const handleProductPress = (product: Product) => {
-    console.log("click");
+    navigation.navigate("Details", {
+      id: product.id,
+    });
   };
 
   if (error) {

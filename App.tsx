@@ -3,13 +3,14 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import React from "react";
 import { Provider as ReduxProvider } from "react-redux";
+import DetailsScreen from "./src/screens/DetailsScreen";
 import HomeScreen from "./src/screens/HomeScreen";
 import LoginScreen from "./src/screens/LoginScreen";
 import { makeStore } from "./src/store/store";
 
 const queryClient = new QueryClient();
 
-const RootStack = createNativeStackNavigator({
+export const RootStack = createNativeStackNavigator({
   initialRouteName: "Login",
   screens: {
     Login: {
@@ -20,6 +21,13 @@ const RootStack = createNativeStackNavigator({
       screen: HomeScreen,
       options: {
         title: "Home",
+        headerBackVisible: false,
+      },
+    },
+    Details: {
+      screen: DetailsScreen,
+      options: {
+        title: "Details",
         headerBackVisible: false,
       },
     },

@@ -1,7 +1,7 @@
 import React from "react";
 import { FlatList, StyleSheet, Text, View } from "react-native";
-import { Product } from "../../types";
-import ProductCard from "../components/ProductCard";
+import { Product } from "../../../../types";
+import ProductOverview from "./ProductOverview";
 
 interface Props {
   products: Product[];
@@ -14,7 +14,7 @@ const HomeScreen = ({ products, onPress }: Props) => {
       data={products}
       keyExtractor={(item) => item.id}
       renderItem={({ item }) => (
-        <ProductCard product={item} onPress={() => onPress(item)} />
+        <ProductOverview product={item} onPress={() => onPress(item)} />
       )}
       contentContainerStyle={styles.listContent}
       ListEmptyComponent={

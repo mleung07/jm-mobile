@@ -1,6 +1,6 @@
 import React from "react";
 import { ScrollView, StyleSheet, Text, View } from "react-native";
-import { Product } from "../../types";
+import { Product } from "../../../../types";
 
 interface DetailRowProp {
   label: string;

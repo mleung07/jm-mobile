@@ -1,13 +1,13 @@
 import React from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import { Product } from "../../types";
+import { Product } from "../../../../types";
 
 interface Props {
   product: Product;
   onPress: () => void;
 }
 
-const ProductCard = ({ product, onPress }: Props) => {
+const ProductOverview = ({ product, onPress }: Props) => {
   return (
     <TouchableOpacity
       style={styles.card}
@@ -84,4 +84,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ProductCard;
+export default ProductOverview;

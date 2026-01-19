@@ -2,8 +2,8 @@ import { RouteProp } from "@react-navigation/native";
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import { Text, View } from "react-native";
-import { fetchProduct } from "../api/product";
-import ProductDetails from "../components/ProductDetails";
+import { fetchProduct } from "../features/product/api";
+import ProductDetails from "../features/product/components/ProductDetails";
 type DetailScreenRouteProp = RouteProp<{ params: { id: string } }, "params">;
 
 const DetailsScreen = ({ route }: { route: DetailScreenRouteProp }) => {

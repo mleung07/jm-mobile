@@ -9,8 +9,8 @@ import {
   View,
 } from "react-native";
 import { Product, RootStackParamList } from "../../types";
-import { fetchProducts } from "../api/product";
-import ProductFlatList from "../components/ProductFlatList";
+import { fetchProducts } from "../features/product/api";
+import ProductFlatList from "../features/product/components/ProductFlatList";
 import { useAppSelector } from "../store/hooks";
 
 type DetailsScreenNavigationProp = NavigationProp<

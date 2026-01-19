@@ -1,9 +1,9 @@
 import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { Alert } from "react-native";
-import LoginForm from "../components/LoginForm";
+import LoginForm from "../features/auth/LoginForm";
+import { login } from "../features/auth/slice";
 import { useAppDispatch } from "../store/hooks";
-import { login } from "../store/slices/authSlice";
 
 const LoginScreen = () => {
   const dispatch = useAppDispatch();

@@ -1,7 +1,6 @@
 import { createStaticNavigation } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import React from "react";
 import { Provider as ReduxProvider } from "react-redux";
 import DetailsScreen from "./src/screens/DetailsScreen";
 import HomeScreen from "./src/screens/HomeScreen";

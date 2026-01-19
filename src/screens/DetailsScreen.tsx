@@ -1,6 +1,5 @@
 import { RouteProp } from "@react-navigation/native";
 import { useQuery } from "@tanstack/react-query";
-import React from "react";
 import { ActivityIndicator, StyleSheet, Text, View } from "react-native";
 import { fetchProduct } from "../features/product/api";
 import ProductDetails from "../features/product/components/ProductDetails";

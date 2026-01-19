@@ -1,21 +1,32 @@
-import React, { useState } from "react";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { Controller, useForm } from "react-hook-form";
 import {
+  Button,
   KeyboardAvoidingView,
   Platform,
   StyleSheet,
   Text,
   TextInput,
-  TouchableOpacity,
   View,
 } from "react-native";
+import { LoginFormData, loginSchema } from "./schema";
 
 interface LoginFormProps {
-  handleLogin: (email: string, password: string) => void;
+  handleLogin: ({ email, password }: LoginFormData) => void;
 }
 
 const LoginForm = ({ handleLogin }: LoginFormProps) => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<LoginFormData>({
+    resolver: zodResolver(loginSchema),
+    defaultValues: {
+      email: "",
+      password: "",
+    },
+  });
 
   return (
     <KeyboardAvoidingView
@@ -27,32 +38,40 @@ const LoginForm = ({ handleLogin }: LoginFormProps) => {
         <Text style={styles.subtitle}>Sign in to continue</Text>
 
         <View style={styles.form}>
-          <TextInput
-            style={styles.input}
-            placeholder="Email"
-            value={email}
-            onChangeText={setEmail}
-            autoCapitalize="none"
-            keyboardType="email-address"
-            testID="email-input"
+          <Controller
+            name="email"
+            control={control}
+            render={({ field }) => (
+              <TextInput
+                {...field}
+                style={styles.input}
+                placeholder="Email"
+                value={field.value}
+                onChangeText={field.onChange}
+                autoCapitalize="none"
+                keyboardType="email-address"
+              />
+            )}
           />
-
-          <TextInput
-            style={styles.input}
-            placeholder="Password"
-            value={password}
-            onChangeText={setPassword}
-            secureTextEntry
-            testID="password-input"
+          <Controller
+            name="password"
+            control={control}
+            render={({ field }) => (
+              <TextInput
+                {...field}
+                style={styles.input}
+                placeholder="Password"
+                value={field.value}
+                onChangeText={field.onChange}
+                secureTextEntry
+              />
+            )}
           />
-
-          <TouchableOpacity
-            style={styles.button}
-            onPress={() => handleLogin(email, password)}
+          <Button
+            title="Login"
+            onPress={handleSubmit(handleLogin)}
             testID="login-button"
-          >
-            <Text style={styles.buttonText}>Login</Text>
-          </TouchableOpacity>
+          />
         </View>
 
         <Text style={styles.hint}>
@@ -95,18 +114,6 @@ const styles = StyleSheet.create({
     fontSize: 16,
     borderWidth: 1,
     borderColor: "#ddd",
-  },
-  button: {
-    backgroundColor: "#007AFF",
-    borderRadius: 8,
-    padding: 16,
-    alignItems: "center",
-    marginTop: 8,
-  },
-  buttonText: {
-    color: "#fff",
-    fontSize: 16,
-    fontWeight: "600",
   },
   hint: {
     marginTop: 24,

@@ -1,28 +1,14 @@
-import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import React from "react";
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import { useAppDispatch, useAppSelector } from "../store/hooks";
-import { logout } from "../store/slices/authSlice";
+import { StyleSheet, Text, View } from "react-native";
+import { useAppSelector } from "../store/hooks";
 
-type HomeScreenProps = {
-  navigation: NativeStackNavigationProp<any>;
-};
-
-const HomeScreen = ({ navigation }: HomeScreenProps) => {
-  const dispatch = useAppDispatch();
+const HomeScreen = () => {
   const { user } = useAppSelector((state) => state.auth);
-  const handleLogout = () => {
-    dispatch(logout());
-    navigation.replace("Login");
-  };
 
   return (
     <View style={styles.container}>
       <View style={styles.header}>
         <Text style={styles.welcomeText}>Welcome , {user?.email}</Text>
-        <TouchableOpacity onPress={handleLogout} testID="logout-button">
-          <Text style={styles.logoutText}>Logout</Text>
-        </TouchableOpacity>
       </View>
     </View>
   );
@@ -46,10 +32,6 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "500",
     color: "#333",
-  },
-  logoutText: {
-    fontSize: 16,
-    color: "#007AFF",
   },
 });
 

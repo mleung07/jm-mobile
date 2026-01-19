@@ -1,12 +1,10 @@
 import { createStaticNavigation } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import React from "react";
-import { Provider as ReduxProvider } from "react-redux";
-import HomeScreen from "./src/screens/HomeScreen";
-import LoginScreen from "./src/screens/LoginScreen";
-import { makeStore } from "./src/store/store";
+import HomeScreen from "./HomeScreen";
+import LoginScreen from "./LoginScreen";
 
-const RootStack = createNativeStackNavigator({
+export const RootStack = createNativeStackNavigator({
   initialRouteName: "Login",
   screens: {
     Login: {
@@ -25,12 +23,6 @@ const RootStack = createNativeStackNavigator({
 
 const Navigation = createStaticNavigation(RootStack);
 
-export default function App() {
-  const store = makeStore;
-
-  return (
-    <ReduxProvider store={store}>
-      <Navigation />
-    </ReduxProvider>
-  );
+export default function Screens() {
+  return <Navigation />;
 }

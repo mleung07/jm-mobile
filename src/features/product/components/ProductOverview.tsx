@@ -9,11 +9,7 @@ interface Props {
 
 const ProductOverview = ({ product, onPress }: Props) => {
   return (
-    <TouchableOpacity
-      style={styles.card}
-      onPress={onPress}
-      testID={`product-card-${product.id}`}
-    >
+    <TouchableOpacity style={styles.card} onPress={onPress}>
       <View style={styles.content}>
         <Text style={styles.name} numberOfLines={2}>
           {product.name}

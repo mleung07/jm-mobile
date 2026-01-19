@@ -22,7 +22,6 @@ const HomeScreen = ({ products, onPress }: Props) => {
           <Text style={styles.emptyText}>No products available</Text>
         </View>
       }
-      testID="products-list"
     />
   );
 };

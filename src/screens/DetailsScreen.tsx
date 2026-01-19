@@ -1,7 +1,7 @@
 import { RouteProp } from "@react-navigation/native";
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
-import { Text, View } from "react-native";
+import { ActivityIndicator, StyleSheet, Text, View } from "react-native";
 import { fetchProduct } from "../features/product/api";
 import ProductDetails from "../features/product/components/ProductDetails";
 type DetailScreenRouteProp = RouteProp<{ params: { id: string } }, "params">;
@@ -20,8 +20,9 @@ const DetailsScreen = ({ route }: { route: DetailScreenRouteProp }) => {
 
   if (isPending) {
     return (
-      <View>
-        <Text>Loading product details...</Text>
+      <View style={styles.centerContainer}>
+        <ActivityIndicator size="large" color="#007AFF" />
+        <Text style={styles.loadingText}>Loading products...</Text>
       </View>
     );
   }
@@ -36,5 +37,19 @@ const DetailsScreen = ({ route }: { route: DetailScreenRouteProp }) => {
 
   return <ProductDetails product={product} />;
 };
+
+const styles = StyleSheet.create({
+  centerContainer: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    padding: 20,
+  },
+  loadingText: {
+    marginTop: 12,
+    fontSize: 16,
+    color: "#666",
+  },
+});
 
 export default DetailsScreen;

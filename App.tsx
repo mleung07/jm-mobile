@@ -20,14 +20,12 @@ export const RootStack = createNativeStackNavigator({
       screen: HomeScreen,
       options: {
         title: "Home",
-        headerBackVisible: false,
       },
     },
     Details: {
       screen: DetailsScreen,
       options: {
         title: "Details",
-        headerBackVisible: false,
       },
     },
   },

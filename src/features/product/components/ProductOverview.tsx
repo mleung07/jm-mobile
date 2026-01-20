@@ -14,18 +14,19 @@ const ProductOverview = ({ product, onPress }: Props) => {
           {product.name}
         </Text>
 
-        {product.description && (
+        {product.description ? (
           <Text style={styles.description} numberOfLines={2}>
             {product.description}
           </Text>
-        )}
-
+        ) : null}
         <View style={styles.footer}>
-          {product.price && <Text style={styles.price}>${product.price}</Text>}
+          {product.price ? (
+            <Text style={styles.price}>${product.price}</Text>
+          ) : null}
 
-          {product.category && (
+          {product.category ? (
             <Text style={styles.category}>{product.category}</Text>
-          )}
+          ) : null}
         </View>
       </View>
     </TouchableOpacity>

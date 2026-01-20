@@ -1,5 +1,5 @@
+import { Product } from "@/types";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import { Product } from "../../../../types";
 
 interface Props {
   product: Product;

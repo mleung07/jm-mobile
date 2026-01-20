@@ -1,5 +1,5 @@
+import { Product } from "@/types";
 import { FlatList, StyleSheet, Text, View } from "react-native";
-import { Product } from "../../../../types";
 import ProductOverview from "./ProductOverview";
 
 interface Props {

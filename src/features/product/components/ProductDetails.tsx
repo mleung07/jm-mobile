@@ -1,5 +1,5 @@
+import { Product } from "@/types";
 import { ScrollView, StyleSheet, Text, View } from "react-native";
-import { Product } from "../../../../types";
 
 interface DetailRowProp {
   label: string;
@@ -9,7 +9,9 @@ interface DetailRowProp {
 const DetailRow = ({ label, value }: DetailRowProp) => (
   <View style={styles.detailRow}>
     <Text style={styles.label}>{label}</Text>
-    <Text style={styles.value}>{value || "N/A"}</Text>
+    <Text style={styles.value} numberOfLines={4}>
+      {value || "N/A"}
+    </Text>
   </View>
 );
 

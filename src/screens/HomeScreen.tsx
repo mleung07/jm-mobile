@@ -1,3 +1,4 @@
+import { Product, RootStackParamList } from "@/types";
 import { NavigationProp, useNavigation } from "@react-navigation/native";
 import { useQuery } from "@tanstack/react-query";
 import {
@@ -7,7 +8,6 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import { Product, RootStackParamList } from "../../types";
 import { fetchProducts } from "../features/product/api";
 import ProductFlatList from "../features/product/components/ProductFlatList";
 import { useAppSelector } from "../store/hooks";

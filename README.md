@@ -35,13 +35,6 @@ yarn test:watch
 yarn test:coverage
 ```
 
-### Building for Production
-
-```bash
-yarn build
-yarn start
-```
-
 ## Key Libraries
 
 - Expo as the base framework

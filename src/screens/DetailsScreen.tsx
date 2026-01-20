@@ -3,6 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import { ActivityIndicator, StyleSheet, Text, View } from "react-native";
 import { fetchProduct } from "../features/product/api";
 import ProductDetails from "../features/product/components/ProductDetails";
+
 type DetailScreenRouteProp = RouteProp<{ params: { id: string } }, "params">;
 
 const DetailsScreen = ({ route }: { route: DetailScreenRouteProp }) => {

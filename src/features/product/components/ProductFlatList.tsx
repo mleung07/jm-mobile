@@ -24,6 +24,7 @@ const HomeScreen = ({ products, onPress }: Props) => {
     />
   );
 };
+
 const styles = StyleSheet.create({
   listContent: {
     padding: 16,

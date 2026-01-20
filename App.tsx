@@ -33,14 +33,14 @@ export const RootStack = createNativeStackNavigator({
 
 const Navigation = createStaticNavigation(RootStack);
 
-export default function App() {
-  const store = makeStore;
-
+const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
-      <ReduxProvider store={store}>
+      <ReduxProvider store={makeStore}>
         <Navigation />
       </ReduxProvider>
     </QueryClientProvider>
   );
-}
+};
+
+export default App;

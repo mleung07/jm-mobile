@@ -42,6 +42,7 @@ const LoginForm = ({ handleLogin }: LoginFormProps) => {
             name="email"
             control={control}
             render={({ field }) => (
+              // Input component could be extracted for reuse
               <TextInput
                 {...field}
                 style={styles.input}
@@ -114,6 +115,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     borderWidth: 1,
     borderColor: "#ddd",
+    color: "#333",
   },
   hint: {
     marginTop: 24,

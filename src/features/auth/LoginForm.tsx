@@ -46,7 +46,9 @@ const LoginForm = ({ handleLogin }: LoginFormProps) => {
               <TextInput
                 {...field}
                 style={styles.input}
+                underlineColorAndroid="transparent"
                 placeholder="Email"
+                placeholderTextColor="gray"
                 value={field.value}
                 onChangeText={field.onChange}
                 autoCapitalize="none"
@@ -61,7 +63,9 @@ const LoginForm = ({ handleLogin }: LoginFormProps) => {
               <TextInput
                 {...field}
                 style={styles.input}
+                underlineColorAndroid="transparent"
                 placeholder="Password"
+                placeholderTextColor="gray"
                 value={field.value}
                 onChangeText={field.onChange}
                 secureTextEntry
@@ -76,7 +80,7 @@ const LoginForm = ({ handleLogin }: LoginFormProps) => {
         </View>
 
         <Text style={styles.hint}>
-          Hint: Use any email with @ and password (6+ chars)
+          Hint: Use any valid email and password (6+ chars)
         </Text>
       </View>
     </KeyboardAvoidingView>
@@ -110,7 +114,9 @@ const styles = StyleSheet.create({
   input: {
     backgroundColor: "#fff",
     borderRadius: 8,
+    paddingVertical: 0,
     padding: 16,
+    height: 48,
     marginBottom: 16,
     fontSize: 16,
     borderWidth: 1,

@@ -9,7 +9,7 @@ interface DetailRowProp {
 const DetailRow = ({ label, value }: DetailRowProp) => (
   <View style={styles.detailRow}>
     <Text style={styles.label}>{label}</Text>
-    <Text style={styles.value} numberOfLines={4}>
+    <Text style={styles.value} numberOfLines={3}>
       {value || "N/A"}
     </Text>
   </View>
@@ -92,6 +92,7 @@ const styles = StyleSheet.create({
   detailRow: {
     flexDirection: "row",
     justifyContent: "space-between",
+    gap: 16,
     paddingVertical: 8,
     borderBottomWidth: 1,
     borderBottomColor: "#f0f0f0",
@@ -106,6 +107,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: "#333",
     textAlign: "right",
+    flex: 1,
   },
 });
 
